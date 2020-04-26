@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AdminService } from './provider/admin.service';
 
 
 @Component({
@@ -10,11 +9,7 @@ import { AdminService } from './provider/admin.service';
 export class AppComponent {
   title = 'doctorPatient';
 
-  constructor(public service:AdminService){
-   this.service.showSpinner();
-   setTimeout(()=>{
-     this.service.hideSpinner();
-   },2000)
+  constructor(){
   }
 
 }

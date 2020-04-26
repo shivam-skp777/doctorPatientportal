@@ -1,0 +1,17 @@
+.banner_start{
+	animation: visual 2s 1;
+	-webkit-transition: 1s all ease;
+	   -moz-transition: 1s all ease;
+	    -ms-transition: 1s all ease;
+	     -o-transition: 1s all ease;
+	        transition: 1s all ease;
+}
+
+@keyframes visual {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
