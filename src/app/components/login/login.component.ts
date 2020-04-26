@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit {
     let apiReq = {
       'username':this.loginForm.value.email,
       'password':this.loginForm.value.password
-      // 'type': 1
     }
     this.adminService.showSpinner();
     this.authService.loginApiFunction(apiReq).subscribe(res=>{
