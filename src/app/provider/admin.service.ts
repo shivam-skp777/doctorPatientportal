@@ -8,7 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AdminService {
-baseUrl:string='http://ec2-52-71-54-175.compute-1.amazonaws.com:4000/insurex/v1/';
+baseUrl:string='http://ec2-52-71-54-175.compute-1.amazonaws.com:5000/insurex/v1/';
   constructor(private toastr: ToastrService,private ngxSpinner: NgxSpinnerService, private http: HttpClient) { }
 
   /**** Toaster Related Function Start******/

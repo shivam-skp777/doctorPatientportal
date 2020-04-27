@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   loginFunc(){
     console.log("Login Form Function---->>>>",this.loginForm);
     let apiReq = {
-      'username':this.loginForm.value.email,
+      'email':this.loginForm.value.email,
       'password':this.loginForm.value.password
     }
     this.adminService.showSpinner();

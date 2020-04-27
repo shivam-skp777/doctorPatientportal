@@ -15,7 +15,7 @@ otpFlag:boolean=false;
   constructor(public router:Router,public authService: AuthService,public adminService: AdminService) {
     this.forgotPasswordForm = new FormGroup({
       email: new FormControl('',[Validators.required,Validators.pattern(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]),
-      otp : new FormControl('',Validators.pattern('^[0-9]$'))
+      otp : new FormControl('',)
     })
    }
 
@@ -50,9 +50,6 @@ otpFlag:boolean=false;
 
   // Verify Otp Functionality
   verifyOtpFunc(){
-    if(this.forgotPasswordForm.controls['otp'].status=='INVALID' && this.forgotPasswordForm.controls['otp'].touched){
-     this.adminService.showError('Invalid Otp','OTP');
-    }else{
       let apiReq = {
         email: this.forgotPasswordForm.value.email,
         otp:this.forgotPasswordForm.value.otp
@@ -76,7 +73,6 @@ otpFlag:boolean=false;
       },err=>{
         this.adminService.hideSpinner();
         this.adminService.showError(err['message'],'OTP');
-      })
-    }    
+      })   
   }
 }
