@@ -32,8 +32,12 @@ export class LoginComponent implements OnInit {
     this.authService.loginApiFunction(apiReq).subscribe(res=>{
       console.log('Res of Login---->>',res);
       this.adminService.hideSpinner();
-      if(res){
-      this.adminService.showSuccess('Success','Login')
+      if(res.status == '200'){
+      this.adminService.showSuccess(res['message'],'Login');
+      localStorage.setItem('authToken',res.data['accessToken']);
+      localStorage.setItem('userId',res.data['responseData']['_id']);
+      }else{
+        this.adminService.showWarning(res['message'],'Login');
       }
     },err=>{
       console.log("Err of Login",err);

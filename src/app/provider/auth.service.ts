@@ -12,4 +12,19 @@ export class AuthService {
   loginApiFunction(reqBody){
     return this.adminService.postService('auth/login',reqBody,this.adminService.getRequestHeaders());
   }
+
+  /******* Forgot Password Api Functionality  */
+  forgotPasswordApiFunction(reqBody){
+    return this.adminService.postService('auth/forgot',reqBody,this.adminService.getRequestHeaders());
+  }
+
+  /********* Verify OTP Api Functionality */
+  verifyOtpApiFunction(reqBody){
+    return this.adminService.postService('auth/verify-otp',reqBody,this.adminService.getRequestHeaders());
+  }
+
+  /******** Reset Password Api Functionality */
+  resetPasswordApiFunction(reqBody){
+    return this.adminService.postService('auth/reset',reqBody,this.adminService.getRequestHeaders());
+  }
 }
