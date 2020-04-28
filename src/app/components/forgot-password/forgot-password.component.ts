@@ -31,6 +31,7 @@ otpFlag:boolean=false;
       let apiReq= {
         email: this.forgotPasswordForm.value.email
       }
+      this.otpFlag = false;
       this.adminService.showSpinner();
       this.authService.forgotPasswordApiFunction(apiReq).subscribe(res=>{
         console.log("Forgot Pasword Res-->",res);
@@ -43,6 +44,7 @@ otpFlag:boolean=false;
         }
       },err=>{
         this.adminService.hideSpinner();
+        this.otpFlag = true;
         this.adminService.showError(err['message'],'Forgot Password');
       })
     }   

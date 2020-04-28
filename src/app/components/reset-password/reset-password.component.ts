@@ -38,7 +38,7 @@ otp:string;
     else{
       let apiReq = {
         email:this.email,
-        otp:this.otp,
+        // otp:this.otp,
         password: this.resetPasswordForm.value.newPassword
       }
       this.adminService.showSpinner();
