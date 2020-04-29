@@ -5,14 +5,14 @@ const app = express();
 
 // Serve only the static files form the dist directory
 // app.use(express.static('./dist/Admin'));
-app.use(express.static(__dirname + '/dist/doctor-patient'));
+app.use(express.static(__dirname + '/dist/doctorPatient'));
 
 // app.use(express.static(__dirname/front-end/dist/));
 
 
 app.get('/*', function(req,res) {
     
-res.sendFile(path.join(__dirname,'/dist/doctor-patient/index.html'));
+res.sendFile(path.join(__dirname,'/dist/doctorPatient/index.html'));
 });
 
 
