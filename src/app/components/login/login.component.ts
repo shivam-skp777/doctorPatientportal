@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/provider/auth.service';
 import { AdminService } from 'src/app/provider/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,14 +12,23 @@ import { AdminService } from 'src/app/provider/admin.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   rememberMeFlag: boolean;
-  constructor(public authService: AuthService,public adminService: AdminService) {
+  constructor(public authService: AuthService,public adminService: AdminService,public router: Router) {
     this.loginForm = new FormGroup({
       email : new FormControl('',Validators.required),
-      password: new FormControl('',Validators.required)
+      password: new FormControl('',Validators.required),
+      remember: new FormControl(false)
     })
    }
 
   ngOnInit() {
+    if(localStorage.getItem('email')){
+      this.loginForm.patchValue({
+        email:localStorage.getItem('email'),
+        password:localStorage.getItem('password'),
+        remember:true
+      })
+      
+    }
   }
 
   // Login Functionality
@@ -34,9 +44,17 @@ export class LoginComponent implements OnInit {
       this.adminService.hideSpinner();
       if(res.status == '200'){
       this.adminService.showSuccess(res['message'],'Login');
+      if(this.rememberMeFlag){
+        localStorage.setItem('email',this.loginForm.value.email);
+        localStorage.setItem('password',this.loginForm.value.password);
+      }else{
+        localStorage.removeItem('email');
+        localStorage.removeItem('password');
+      }
       localStorage.setItem('authToken',res.data['accessToken']);
       localStorage.setItem('userId',res.data['responseData']['_id']);
-      }else{
+       this.router.navigate(['/home'])
+    }else{
         this.adminService.showWarning(res['message'],'Login');
       }
     },err=>{
