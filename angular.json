@@ -121,6 +121,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "doctorPatient"
+    }
+  },
+  "defaultProject": "doctorPatient",
+  "cli": {
+    "analytics": false
+  }
 }
