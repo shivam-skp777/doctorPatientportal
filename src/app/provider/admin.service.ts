@@ -8,11 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AdminService {
-<<<<<<< HEAD
-baseUrl:string='http://ec2-3-7-21-94.ap-south-1.compute.amazonaws.com:5000/insurex/v1/';
-=======
 public baseUrl:string='http://ec2-3-7-21-94.ap-south-1.compute.amazonaws.com:5000/insurex/v1/';
->>>>>>> 767316a995ad03c5170e1261e7f6880d5d183340
   constructor(private toastr: ToastrService,private ngxSpinner: NgxSpinnerService, private http: HttpClient) { }
 
   /**** Toaster Related Function Start******/
