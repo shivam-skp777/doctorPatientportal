@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 
 @Component({
@@ -8,8 +9,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'doctorPatient';
-
-  constructor(){
+  commomComp:boolean = false;
+  constructor(public router: Router){
+    this.router.events.subscribe((value) => {
+      if (value instanceof NavigationEnd) {
+         let url = value.url;
+     if(localStorage.getItem('authToken')){     
+     if((url == '/login')||(url == '/forgot')||(url.includes('reset'))){
+      this.commomComp = true;
+       this.router.navigate(['/home'])
+     }else{
+      this.commomComp = true;
+     }
+    }else{
+      if(!((url == '/login')||(url == '/forgot')||(url.includes('reset')))){
+        this.commomComp = false;
+        this.router.navigate(['/login'])
+      }else{
+        this.commomComp = false;
+      }
+    }
+      }
+    });
   }
 
 }

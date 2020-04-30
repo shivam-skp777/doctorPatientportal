@@ -2,13 +2,13 @@ import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from "ngx-spinner";
 import { HttpHeaders,HttpClient} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
 export class AdminService {
-baseUrl:string='http://ec2-3-7-21-94.ap-south-1.compute.amazonaws.com:5000/insurex/v1/';
+public baseUrl:string='http://ec2-3-7-21-94.ap-south-1.compute.amazonaws.com:5000/insurex/v1/';
   constructor(private toastr: ToastrService,private ngxSpinner: NgxSpinnerService, private http: HttpClient) { }
 
   /**** Toaster Related Function Start******/
