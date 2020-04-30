@@ -13,13 +13,23 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthService } from './provider/auth.service';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { RequestComponent } from './components/request/request.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     ForgotPasswordComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    DashboardComponent,
+    SidemenuComponent,
+    HeaderComponent,
+    FooterComponent,
+    RequestComponent
   ],
   imports: [
     BrowserModule,
