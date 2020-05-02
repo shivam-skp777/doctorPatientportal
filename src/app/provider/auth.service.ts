@@ -27,4 +27,9 @@ export class AuthService {
   resetPasswordApiFunction(reqBody){
     return this.adminService.postService('auth/reset-password',reqBody,this.adminService.getRequestHeaders());
   }
+
+  /*********** Resgisteration Api Functionality */
+  registrationFunctionality(reqBody){
+    return this.adminService.postService('auth/register',reqBody,this.adminService.getRequestHeaders());
+  }
 }

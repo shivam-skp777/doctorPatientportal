@@ -3,11 +3,14 @@
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active">
+                <li [ngClass]="{'active': currentUrl == '/home'}">
                     <a [routerLink]="['/home']"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
-                <li class="">
+                <li [ngClass]="{'active': currentUrl == '/request'}">
                     <a [routerLink]="['/request']"><i class="menu-icon fa fa-cogs"></i>Requests </a>
+                </li>
+                <li [ngClass]="{'active': (currentUrl == '/all-user')}">
+                    <a [routerLink]="['/all-user']"><i class="menu-icon fa fa-user"></i>Userlist </a>
                 </li>
             </ul>
         </div><!-- /.navbar-collapse -->

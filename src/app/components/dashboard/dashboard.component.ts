@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var jQuery:any;
 @Component({
   selector: 'app-dashboard',
@@ -7,11 +8,13 @@ declare var jQuery:any;
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router) { }
 
   ngOnInit() {
   }
 
-
+  goToUserList(){
+   this.router.navigate(['/all-user'])
+  }
 
 }

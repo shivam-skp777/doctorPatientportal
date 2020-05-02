@@ -18,6 +18,8 @@ import { SidemenuComponent } from './components/sidemenu/sidemenu.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RequestComponent } from './components/request/request.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { AllUserComponent } from './components/all-user/all-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { RequestComponent } from './components/request/request.component';
     SidemenuComponent,
     HeaderComponent,
     FooterComponent,
-    RequestComponent
+    RequestComponent,
+    AddUserComponent,
+    AllUserComponent
   ],
   imports: [
     BrowserModule,
