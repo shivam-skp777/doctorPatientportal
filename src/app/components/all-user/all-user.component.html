@@ -23,9 +23,9 @@
                                             <th class="serial">#</th>
                                             <!-- <th class="avatar">Avatar</th>                                             -->
                                             <th>Name</th>
-                                            <th>Role</th>
-                                            <th>Contact</th>
-                                            <th class="text-right">Email</th>
+                                            <th class="text-center">Role</th>
+                                            <th class="text-center">Contact</th>
+                                            <th class="text-center">Email</th>
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
@@ -37,11 +37,11 @@
                                                     <a><img class="rounded-circle" src="assets/images/avatar/1.jpg" alt=""></a>
                                                 </div>
                                             </td> -->
-                                            <td>  <span class="name">{{user?.firstName}}{{user?.lastName}}</span> </td>
-                                            <td *ngIf="user.role == '2'"> <span class="product">Client</span> </td>
-                                            <td  *ngIf="user.role == '3'"> <span class="product">Doctor</span> </td>
-                                            <td class="text-right"><span class="count">{{user?.mobileNumber}}</span></td>
-                                            <td class="text-right"><span class="count">{{user?.email}}</span></td>
+                                            <td>  <span class="name text-center">{{user?.firstName}}{{user?.lastName}}</span> </td>
+                                            <td *ngIf="user.role == '2'" class="text-center"> <span class="product">Client</span> </td>
+                                            <td  *ngIf="user.role == '3'" class="text-center"> <span class="product">Doctor</span> </td>
+                                            <td class="text-center"><span class="count">{{user?.mobileNumber}}</span></td>
+                                            <td class="text-center"><span class="count">{{user?.email}}</span></td>
                                             <td class="text-center">
                                                 <!-- <a class="icon-style" (click)=""><i class="fa fa-eye fa-2x"></i></a> -->
                                                 <a class="icon-style" (click)="editUserFunction(user._id)"><i class="fa fa-pencil fa-2x"></i></a>
