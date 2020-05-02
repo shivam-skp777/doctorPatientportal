@@ -1,0 +1,20 @@
+.btn-submit {
+    color: #fff !important;
+    background-color: #1f8a3c !important;
+    padding: 9px 18px !important;
+    font-size: 15px !important;
+    transition: 0.5s ease !important;
+    margin-right: 13px;
+}
+
+.btn-reset {
+    color: #fff !important;
+    background-color: #e85d2a !important;
+    padding: 9px 18px !important;
+    font-size: 15px !important;
+    transition: 0.5s ease !important;
+}
+
+.help-block {
+    color: red;
+}

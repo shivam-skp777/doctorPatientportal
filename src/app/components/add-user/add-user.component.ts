@@ -38,7 +38,7 @@ export class AddUserComponent implements OnInit {
     "role":this.userForm.value.userType,
     "firstName":this.userForm.value.firstName,
     "lastName":this.userForm.value.lastName,
-    "mobileNumber":"+91"+this.userForm.value.contact
+    "mobileNumber":this.userForm.value.contact
   }
   this.adminService.showSpinner();
   this.authService.registrationFunctionality(apiReq).subscribe(res=>{
