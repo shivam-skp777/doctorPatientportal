@@ -7,16 +7,20 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RequestComponent } from './components/request/request.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { AllUserComponent } from './components/all-user/all-user.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
-const routes: Routes = [{path:'', redirectTo:'login' , pathMatch:'full'},
+const routes: Routes = [
+{path:'', redirectTo:'login' , pathMatch:'full'},
 {path:'login' , component: LoginComponent},
 {path:'forgot' , component:ForgotPasswordComponent},
 {path:'reset',component:ResetPasswordComponent},
 {path:'home',component:DashboardComponent},
 {path:'request',component:RequestComponent},
 {path:'add-user',component:AddUserComponent},
-{path:'all-user',component:AllUserComponent}];
+{path:'all-user',component:AllUserComponent},
+{path:'edit-user',component:EditUserComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

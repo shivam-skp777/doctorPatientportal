@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class AdminService {
 public baseUrl:string='http://ec2-3-7-21-94.ap-south-1.compute.amazonaws.com:5000/insurex/v1/';
-  authToken: string;
+  authToken: string='';
   constructor(private toastr: ToastrService,private ngxSpinner: NgxSpinnerService, private http: HttpClient) { }
 
   /**** Toaster Related Function Start******/
@@ -43,11 +43,18 @@ public baseUrl:string='http://ec2-3-7-21-94.ap-south-1.compute.amazonaws.com:500
   /******** Get Headers For The Api **********/
   public getRequestHeaders(): { headers: HttpHeaders | { [header: string]: string | string[]; } } {
     this.authToken =localStorage.getItem('authToken');
+    if(this.authToken){
     let headers = new HttpHeaders({
-      // 'Authorization': 'Bearer ' + this.authToken,
+      'access_token': this.authToken,
       'Content-Type': 'application/json',
     });
     return { headers: headers };
+  }else{
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return { headers: headers };
+  }
   }
   
   /***************** Api's Base Structure Start *************************/

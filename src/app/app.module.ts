@@ -20,6 +20,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RequestComponent } from './components/request/request.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { AllUserComponent } from './components/all-user/all-user.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AllUserComponent } from './components/all-user/all-user.component';
     FooterComponent,
     RequestComponent,
     AddUserComponent,
-    AllUserComponent
+    AllUserComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
