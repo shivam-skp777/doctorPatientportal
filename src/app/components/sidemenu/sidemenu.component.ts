@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-sidemenu',
@@ -6,8 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidemenu.component.css']
 })
 export class SidemenuComponent implements OnInit {
-
-  constructor() { }
+  currentUrl:string;
+  constructor(public router:Router) {
+    this.router.events.subscribe((value) => {
+      if (value instanceof NavigationEnd) {
+         this.currentUrl= value.url;   
+      }
+    });
+   }
 
   ngOnInit() {
   }
