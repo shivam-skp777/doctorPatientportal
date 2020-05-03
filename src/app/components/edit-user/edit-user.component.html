@@ -21,7 +21,7 @@
                             </div>
                             <div class="row form-group">
                                 <div class="col col-md-3"><label for="email-input" class=" form-control-label">Enter Email</label></div>
-                                <div class="col-12 col-md-9"><input type="email" id="email-input" formControlName="email" name="email-input" placeholder="Enter Email" class="form-control"><small class="help-block form-text" *ngIf="(editUserForm['controls'].email.status != 'VALID')&&editUserForm['controls'].email.touched">Please enter valid email</small></div>
+                                <div class="col-12 col-md-9"><input type="email" id="email-input" formControlName="email" name="email-input" placeholder="Enter Email" class="form-control" readonly><small class="help-block form-text" *ngIf="(editUserForm['controls'].email.status != 'VALID')&&editUserForm['controls'].email.touched">Please enter valid email</small></div>
                             </div>
                             <!-- <div class="row form-group">
                                 <div class="col col-md-3"><label for="password-input" class=" form-control-label">Enter Password</label></div>
@@ -53,8 +53,8 @@
                         <button type="submit" class="btn-submit btn btn-primary btn-sm"  (click)="editUserFunc()">
                             <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
-                        <button type="reset" class="btn-reset btn btn-danger btn-sm" (click)="initializeForm()">
-                            <i class="fa fa-ban"></i> Reset
+                        <button type="reset" class="btn-reset btn btn-danger btn-sm" [routerLink]="['/all-user']">
+                            <i class="fa fa-ban"></i> Cancel
                         </button>
                     </div>
                 </div>

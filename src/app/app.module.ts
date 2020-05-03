@@ -21,6 +21,7 @@ import { RequestComponent } from './components/request/request.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { AllUserComponent } from './components/all-user/all-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     RequestComponent,
     AddUserComponent,
     AllUserComponent,
-    EditUserComponent
+    EditUserComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,
