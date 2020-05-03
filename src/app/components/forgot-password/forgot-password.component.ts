@@ -52,6 +52,10 @@ otpFlag:boolean=false;
 
   // Verify Otp Functionality
   verifyOtpFunc(){
+    if(this.forgotPasswordForm.value.email == '' || this.forgotPasswordForm.value.otp ==''){
+      this.adminService.showError('Please Enter OTP','OTP');
+
+    }else{
       let apiReq = {
         email: this.forgotPasswordForm.value.email,
         otp:this.forgotPasswordForm.value.otp
@@ -75,6 +79,7 @@ otpFlag:boolean=false;
       },err=>{
         this.adminService.hideSpinner();
         this.adminService.showError(err['message'],'OTP');
-      })   
+      })  
+    }       
   }
 }

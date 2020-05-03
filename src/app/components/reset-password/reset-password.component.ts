@@ -34,6 +34,8 @@ otp:string;
       this.adminService.showError('Invalid New Password','New Password');
     }else if(this.resetPasswordForm.value.newPassword != this.resetPasswordForm.value.confirmPassword){
       this.adminService.showError('New password doesnot match with confirm password','Confirm Password');
+     }else if(this.resetPasswordForm.value.newPassword == '' || this.resetPasswordForm.value.confirmPassword == ''){
+      this.adminService.showError('Please Enter The Password','Confirm Password');
      }
     else{
       let apiReq = {

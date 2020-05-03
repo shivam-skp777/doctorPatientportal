@@ -8,6 +8,7 @@ import { RequestComponent } from './components/request/request.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { AllUserComponent } from './components/all-user/all-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
 {path:'request',component:RequestComponent},
 {path:'add-user',component:AddUserComponent},
 {path:'all-user',component:AllUserComponent},
-{path:'edit-user',component:EditUserComponent}
+{path:'edit-user',component:EditUserComponent},
+{path:'my-profile',component:MyProfileComponent}
 ];
 
 @NgModule({

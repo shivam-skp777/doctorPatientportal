@@ -7,7 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./sidemenu.component.css']
 })
 export class SidemenuComponent implements OnInit {
-  currentUrl:string;
+  currentUrl:string='/home';
   constructor(public router:Router) {
     this.router.events.subscribe((value) => {
       if (value instanceof NavigationEnd) {
