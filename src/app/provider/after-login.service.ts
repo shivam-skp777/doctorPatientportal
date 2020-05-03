@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { AdminService } from './admin.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AfterLoginService {
-
+myProfileValue = new BehaviorSubject('');
+myProfileObserve = this.myProfileValue.asObservable();
   constructor(public adminService: AdminService) { }
 
   // Get Count Regarding Roles Api Functionality
@@ -36,5 +38,10 @@ export class AfterLoginService {
   // User Profile Api Function
   getUserProfile(){
     return this.adminService.getService('auth/get_my_profile',this.adminService.getRequestHeaders());
+  }
+
+  // Detect The Change Of UserProfile
+  detectProfileChange(profileValue){
+    this.myProfileValue.next(profileValue);
   }
 }

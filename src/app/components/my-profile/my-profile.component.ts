@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
-
+  userDetail:any={};
   constructor(public adminService:AdminService,public afterLogin: AfterLoginService, public router:Router) { }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class MyProfileComponent implements OnInit {
       console.log('Response of my profile---->>>',JSON.stringify(res));
       this.adminService.hideSpinner();
       if(res.status == '200'){
-
+       this.userDetail = res.data[0];
       }else{
        this.adminService.showWarning(res['message'],'Get Profile');
       }

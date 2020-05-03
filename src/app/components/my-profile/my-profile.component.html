@@ -18,22 +18,24 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h3 class="text-justify">Steven Lee</h3>
+                                        <h3 class="text-justify">{{userDetail?.firstName}} {{userDetail?.lastName}}</h3>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="text-justify"><i class="fa fa-stethoscope"></i> Doctor</div>
+                                        <div class="text-justify" *ngIf="userDetail.role == '1'"><i class="fas fa-user-crown"></i> Admin</div>
+                                        <div class="text-justify" *ngIf="userDetail.role == '2'"><i class="fa fa-user"></i> Client</div>
+                                        <div class="text-justify" *ngIf="userDetail.role == '3'"><i class="fa fa-stethoscope"></i> Doctor</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <div class="text-justify"><i class="fa fa-map-marker"></i> abc@example.com</div>
+                                        <div class="text-justify"><i class="fa fa-map-marker"></i> {{userDetail?.email}}</div>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding-top: 2px; padding-bottom: 2px">
-                                        <div class="text-justify"><i class="fa fa-phone"></i> +40 1234567890</div>
+                                        <div class="text-justify"><i class="fa fa-phone"></i>{{" " +userDetail?.mobileNumber}}</div>
                                     </td>
                                 </tr>
                             </table>

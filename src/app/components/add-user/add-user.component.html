@@ -28,6 +28,10 @@
                                 <div class="col-12 col-md-9"><input type="password" id="password-input" formControlName="password" name="password-input" placeholder="Enter Password" class="form-control"><small class="help-block form-text" *ngIf="(userForm['controls'].password.status != 'VALID')&&userForm['controls'].password.touched">Please enter strong password</small></div>
                             </div>
                             <div class="row form-group">
+                                <div class="col col-md-3"><label for="password-input" class=" form-control-label">Re-enter Password</label></div>
+                                <div class="col-12 col-md-9"><input type="password" id="password-input" formControlName="confirmPassword" name="password-input" placeholder="Re-enter Password" class="form-control"><small class="help-block form-text" *ngIf="(userForm.value.password != userForm.value.confirmPassword)&&userForm['controls'].password.touched">Confirm Password doesnot match with password</small></div>
+                            </div>
+                            <div class="row form-group">
                                 <div class="col col-md-3"><label for="password-input" class=" form-control-label">Contact Number</label></div>
                                 <div class="col-12 col-md-9"><input type="text" id="text-input" name="text-input" formControlName="contact" maxlength="10" placeholder="Contact Number" class="form-control"><small class="help-block form-text" *ngIf="(userForm['controls'].contact.status != 'VALID')&&userForm['controls'].contact.touched">Please enter valid contact number</small></div>
                             </div>
@@ -50,7 +54,7 @@
                         </form>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn-submit btn btn-primary btn-sm" [disabled]="userForm.invalid"  (click)="addUserFunc()">
+                        <button type="submit" class="btn-submit btn btn-primary btn-sm" [disabled]="userForm.invalid || (userForm.value.password != userForm.value.confirmPassword)"  (click)="addUserFunc()">
                             <i class="fa fa-dot-circle-o"></i> Submit
                         </button>
                         <button type="reset" class="btn-reset btn btn-danger btn-sm" (click)="initializeForm()">
