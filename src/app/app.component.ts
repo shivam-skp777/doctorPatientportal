@@ -9,26 +9,31 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent {
   title = 'doctorPatient';
-  commomComp:boolean = false;
-  constructor(public router: Router){
+  commomComp: boolean = false;
+  userType: string = '';
+  constructor(public router: Router) {
+
     this.router.events.subscribe((value) => {
       if (value instanceof NavigationEnd) {
-         let url = value.url;
-     if(localStorage.getItem('authToken')){     
-     if((url == '/login')||(url == '/forgot')||(url.includes('reset'))){
-      this.commomComp = true;
-       this.router.navigate(['/home'])
-     }else{
-      this.commomComp = true;
-     }
-    }else{
-      if(!((url == '/login')||(url == '/forgot')||(url.includes('reset')))){
-        this.commomComp = false;
-        this.router.navigate(['/login'])
-      }else{
-        this.commomComp = false;
-      }
-    }
+        let url = value.url;
+        if (localStorage.getItem('userType')) {
+          this.userType = localStorage.getItem('userType');
+        }
+        if (localStorage.getItem('authToken')) {
+          if ((url == '/login') || (url == '/forgot') || (url.includes('reset'))) {
+            this.commomComp = true;
+            this.router.navigate(['/home'])
+          } else {
+            this.commomComp = true;
+          }
+        } else {
+          if (!((url == '/login') || (url == '/forgot') || (url.includes('reset')))) {
+            this.commomComp = false;
+            this.router.navigate(['/login'])
+          } else {
+            this.commomComp = false;
+          }
+        }
       }
     });
   }

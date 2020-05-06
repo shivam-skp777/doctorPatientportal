@@ -52,8 +52,15 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('password');
       }
       localStorage.setItem('authToken',res.data['accessToken']);
+      localStorage.setItem('userType',res.data['responseData']['role']);
       localStorage.setItem('userId',res.data['responseData']['_id']);
+      if(res.data['responseData']['role'] == '2'){
+       this.router.navigate(['/clientDashboard']);
+      }else if(res.data['responseData']['role'] == '3'){
+      this.router.navigate(['/doctorDashboard']);
+      }else{
        this.router.navigate(['/home'])
+      }
     }else{
         this.adminService.showWarning(res['message'],'Login');
       }

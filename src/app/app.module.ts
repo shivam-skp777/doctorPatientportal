@@ -22,6 +22,8 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { AllUserComponent } from './components/all-user/all-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
+import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
+import { ClientDashboardComponent } from './components/client-dashboard/client-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
     AddUserComponent,
     AllUserComponent,
     EditUserComponent,
-    MyProfileComponent
+    MyProfileComponent,
+    DoctorDashboardComponent,
+    ClientDashboardComponent
   ],
   imports: [
     BrowserModule,
