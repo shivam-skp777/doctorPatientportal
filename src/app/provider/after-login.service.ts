@@ -44,4 +44,35 @@ myProfileObserve = this.myProfileValue.asObservable();
   detectProfileChange(profileValue){
     this.myProfileValue.next(profileValue);
   }
+
+  // Upload Image Api 
+  uploadImageApi(reqBody){
+    return this.adminService.postFormService('util/upload_media',reqBody);
+  }
+
+  // Add Report Functionality
+  addReportFunction(reqBody){
+    return this.adminService.postService('client/add_report',reqBody,this.adminService.getRequestHeaders())
+  }
+
+  // Get All Client Report Api Function
+  getAllReportOfClient(){
+    return this.adminService.getService('client/get_client_reports',this.adminService.getRequestHeaders());
+  }
+
+  // Assign Doctor to the client
+  assignDoctor(reqBody){
+    return this.adminService.postService('client/assign_doctor',reqBody,this.adminService.getRequestHeaders());
+  }
+
+  // Get All Assigned Report To Doctor
+  getAssignedReportList(){
+    return this.adminService.getService('client/get_all_assigned_reports',this.adminService.getRequestHeaders());
+  }
+
+  // Get Doctor List
+  getDoctorList(){
+    return this.adminService.getService('auth/get_doctor_list',this.adminService.getRequestHeaders());
+  }
+
 }

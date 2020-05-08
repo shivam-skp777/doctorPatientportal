@@ -1,0 +1,52 @@
+
+                            <div class="orders">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="box-title">Report List:</h4>
+                                            </div>
+                                            <div class="card-body--">
+                                                <div class="table-stats order-table ov-h">
+                                                    <table class="table ">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="serial">#</th>
+                                                                <th class="avatar">Avatar</th>                                            
+                                                                <th>Client Name:</th>
+                                                                <!-- <th class="text-center">Role</th> -->
+                                                                <th class="text-center">Status</th>
+                                                                <th class="text-center">Created At</th>
+                                                                <!-- <th class="text-center">Actions</th> -->
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let report of reportList; let i = index;">
+                                                                <td class="serial">{{i+1}}</td>
+                                                                <td class="avatar">
+                                                                    <div class="round-img">
+                                                                        <a><img class="rounded-circle" (click)="downloadReportFunc(report.reporturl)" [src]="report.reporturl" alt=""></a>
+                                                                        <!-- <i class="fa fa-download" aria-hidden="true"></i> -->
+                                                                    </div>
+                                                                </td>
+                                                                <td>  <span class="name text-center">{{report?.clientName}}</span> </td>
+                                                                <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
+                                                                <td class="text-center" ><span class="count">{{report?.createdAt | date: 'short'}}</span></td>
+                                                               
+                                                            </tr> 
+                                                            <tr *ngIf="reportList == ''">
+                                                                <td class="serial">No Report List Available</td>   
+                                                            </tr>                                        
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!-- /.table-stats -->
+                                            </div>
+                                            <!-- <div class="card-footer">
+                                                <a class="links btn btn-primary btn-sm" >
+                                                    <input type="file" id="file-input"  name="file-input" class="form-control-file" (change)="getImageData($event)">
+                                                </a>
+                                            </div> -->
+                                        </div> <!-- /.card -->
+                                    </div>  <!-- /.col-lg-8 -->
+                                </div>
+                            </div>

@@ -3,13 +3,21 @@
     <nav class="navbar navbar-expand-sm navbar-default">
         <div id="main-menu" class="main-menu collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li [ngClass]="{'active': currentUrl == '/home'}">
+                <li [ngClass]="{'active': currentUrl == '/home'}" *ngIf="userType == 1">
                     <a [routerLink]="['/home']"><i class="menu-icon fa fa-laptop"></i>Dashboard </a>
                 </li>
-                <li [ngClass]="{'active': currentUrl == '/request'}">
+                <li [ngClass]="{'active': currentUrl == '/clientDashboard'}" *ngIf="userType == 2">
+                    <a [routerLink]="['/clientDashboard']"><i class="menu-icon fa fa-laptop"></i>Client Dashboard </a>
+                </li>
+                <li [ngClass]="{'active': currentUrl == '/doctorDashboard'}" *ngIf="userType == 3">
+                    <a [routerLink]="['/doctorDashboard']"><i class="menu-icon fa fa-laptop"></i>Doctor Dashboard </a>
+                </li>
+                <li [ngClass]="{'active': currentUrl == '/request'}"
+                *ngIf="userType == '1'">
                     <a [routerLink]="['/request']"><i class="menu-icon fa fa-cogs"></i>Requests </a>
                 </li>
-                <li [ngClass]="{'active': (currentUrl == '/all-user')}">
+                <li [ngClass]="{'active': (currentUrl == '/all-user')}"
+                *ngIf="userType == '1'">
                     <a [routerLink]="['/all-user']"><i class="menu-icon fa fa-user"></i>Userlist </a>
                 </li>
             </ul>
