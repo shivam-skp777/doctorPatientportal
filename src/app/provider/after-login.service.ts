@@ -75,4 +75,9 @@ myProfileObserve = this.myProfileValue.asObservable();
     return this.adminService.getService('auth/get_doctor_list',this.adminService.getRequestHeaders());
   }
 
+  // Get All Client's Report
+  getAllClientReport(){
+    return this.adminService.getService('client/get_all_client_reports',this.adminService.getRequestHeaders());
+  }
+
 }

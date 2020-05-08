@@ -20,6 +20,10 @@
                 *ngIf="userType == '1'">
                     <a [routerLink]="['/all-user']"><i class="menu-icon fa fa-user"></i>Userlist </a>
                 </li>
+                <li [ngClass]="{'active': currentUrl == '/reportList'}"
+                *ngIf="userType == '1'">
+                    <a [routerLink]="['/reportList']"><i class="menu-icon fa fa-file"></i>Report List </a>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </nav>
