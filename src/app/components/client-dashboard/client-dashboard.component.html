@@ -1,1 +1,60 @@
-<p>client-dashboard works!</p>
+ <!-- <div class="row form-group">
+                                <div class="col col-md-3"><label for="file-input" class=" form-control-label">Choose Report</label></div>
+                                <div class="col-12 col-md-9"><input type="file" id="file-input"  name="file-input" class="form-control-file" (change)="getImageData($event)">
+                                <small class="help-block form-text" ></small></div>
+                            </div> -->
+                            <div class="orders">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <h4 class="box-title">Client/Users </h4>
+                                            </div>
+                                            <div class="card-body--">
+                                                <div class="table-stats order-table ov-h">
+                                                    <table class="table ">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="serial">#</th>
+                                                                <th class="avatar">Avatar</th>                                            
+                                                                <th>Name</th>
+                                                                <!-- <th class="text-center">Role</th> -->
+                                                                <th class="text-center">Status</th>
+                                                                <th class="text-center">Doctor Assigned</th>
+                                                                <!-- <th class="text-center">Actions</th> -->
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let report of reportList; let i = index;">
+                                                                <td class="serial">{{i+1}}</td>
+                                                                <td class="avatar">
+                                                                    <div class="round-img">
+                                                                        <a><img class="rounded-circle" [src]="report.reporturl" alt=""></a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>  <span class="name text-center">Report {{i + 1}}</span> </td>
+                                                                <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
+                                                                <td class="text-center" *ngIf="report.status == 'PENDING'"> <select name="select" id="select" class="form-control" (change)="assignDoctor($event,report)">
+                                                                    <option value="">Please select</option>
+                                                                    <option  *ngFor="let doctor of doctorList" [value]="doctor._id">{{doctor?.firstName}}{{doctor?.lastName}}</option>
+                                                                  
+                                                                </select></td>
+                                                                <td class="text-center" *ngIf="report.status == 'Assigned'"><span class="count">{{report?.assignedDocterName}}</span></td>
+                                                               
+                                                            </tr>  
+                                                            <tr *ngIf="reportList == ''">
+                                                                <td class="serial">No Report List Available</td>                                                             
+                                                            </tr>                                       
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!-- /.table-stats -->
+                                            </div>
+                                            <div class="card-footer">
+                                                <a class="links btn btn-primary btn-sm" >
+                                                    <input type="file" id="file-input"  name="file-input" class="form-control-file" (change)="getImageData($event)">
+                                                </a>
+                                            </div>
+                                        </div> <!-- /.card -->
+                                    </div>  <!-- /.col-lg-8 -->
+                                </div>
+                            </div>

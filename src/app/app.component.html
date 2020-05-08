@@ -1,4 +1,4 @@
-<app-sidemenu *ngIf="commomComp && userType == '1'"></app-sidemenu>
+<app-sidemenu *ngIf="commomComp"></app-sidemenu>
 <div id="right-panel" [ngClass]="{'right-panel':commomComp}" >
 <app-header *ngIf="commomComp" ></app-header>
 <router-outlet></router-outlet>

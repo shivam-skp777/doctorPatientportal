@@ -107,4 +107,17 @@ public handleError(error: Response | any) {
   return Observable.throw(error);
 }
   /***************** Api's Base Structure End **************/
+
+  /***************** Form Data Based Api **********************/ 
+  public postFormService(url, postObj): Observable<any> {
+    let baseUrl = 'http://3.7.21.94:5000/insurex/v1/'+url;
+    return this.http.post(baseUrl, postObj)
+        .pipe(catchError(err => this.handleError(err)));
+  }
+
+  /**************** Download Image Functionality ********************/
+  downloadFile(fileUrl){
+    return this.http.get(fileUrl, 
+      {responseType: 'blob'});
+  }
 }

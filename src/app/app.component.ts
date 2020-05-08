@@ -15,14 +15,16 @@ export class AppComponent {
 
     this.router.events.subscribe((value) => {
       if (value instanceof NavigationEnd) {
-        let url = value.url;
-        if (localStorage.getItem('userType')) {
-          this.userType = localStorage.getItem('userType');
-        }
+        let url = value.url;       
         if (localStorage.getItem('authToken')) {
           if ((url == '/login') || (url == '/forgot') || (url.includes('reset'))) {
             this.commomComp = true;
-            this.router.navigate(['/home'])
+            if(localStorage.getItem('userType') && (Number(localStorage.getItem('userType')) == 1))
+            this.router.navigate(['/home']);
+            else if(localStorage.getItem('userType') && (Number(localStorage.getItem('userType')) == 2))
+            this.router.navigate(['/clientDashboard']);
+            else if(localStorage.getItem('userType') && (Number(localStorage.getItem('userType')) == 3))
+            this.router.navigate(['/doctorDashboard']);
           } else {
             this.commomComp = true;
           }

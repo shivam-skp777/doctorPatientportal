@@ -53,6 +53,8 @@ export class LoginComponent implements OnInit {
       }
       localStorage.setItem('authToken',res.data['accessToken']);
       localStorage.setItem('userType',res.data['responseData']['role']);
+      localStorage.setItem('firstName',res.data['responseData']['firstName']);
+      localStorage.setItem('lastName',res.data['responseData']['lastName']);
       localStorage.setItem('userId',res.data['responseData']['_id']);
       if(res.data['responseData']['role'] == '2'){
        this.router.navigate(['/clientDashboard']);

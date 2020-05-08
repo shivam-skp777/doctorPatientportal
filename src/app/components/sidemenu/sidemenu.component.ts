@@ -8,12 +8,16 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class SidemenuComponent implements OnInit {
   currentUrl:string='/home';
+  userType: number;
   constructor(public router:Router) {
     this.router.events.subscribe((value) => {
       if (value instanceof NavigationEnd) {
-         this.currentUrl= value.url;   
+         this.currentUrl= value.url;         
       }
     });
+    if (localStorage.getItem('userType')) {
+      this.userType = Number(localStorage.getItem('userType'));
+    }
    }
 
   ngOnInit() {
