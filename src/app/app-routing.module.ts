@@ -11,6 +11,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { ClientDashboardComponent } from './components/client-dashboard/client-dashboard.component';
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
+import { ReportListComponent } from './components/report-list/report-list.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
 {path:'edit-user',component:EditUserComponent},
 {path:'my-profile',component:MyProfileComponent},
 {path:'doctorDashboard',component:DoctorDashboardComponent},
-{path:'clientDashboard',component:ClientDashboardComponent}
+{path:'clientDashboard',component:ClientDashboardComponent},
+{path:'reportList', component:ReportListComponent}
 ];
 
 @NgModule({

@@ -29,16 +29,13 @@
                                                                 <td class="serial">{{i+1}}</td>
                                                                 <td class="avatar">
                                                                     <div class="round-img">
-                                                                        <a><img class="rounded-circle" [src]="report.reporturl" alt=""></a>
+                                                                        <a *ngIf="!(report.reporturl.includes('.pdf'))" (click)="downloadReportFunc(report.reporturl)"><img class="rounded-circle" [src]="report.reporturl" alt=""></a>
+                                                                        <a *ngIf="(report['reporturl'].includes('.pdf'))" [href]="report.reporturl" target="_blank">PDF</a>
                                                                     </div>
                                                                 </td>
                                                                 <td>  <span class="name text-center">Report {{i + 1}}</span> </td>
                                                                 <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
-                                                                <td class="text-center" *ngIf="report.status == 'PENDING'"> <select name="select" id="select" class="form-control" (change)="assignDoctor($event,report)">
-                                                                    <option value="">Please select</option>
-                                                                    <option  *ngFor="let doctor of doctorList" [value]="doctor._id">{{doctor?.firstName}}{{doctor?.lastName}}</option>
-                                                                  
-                                                                </select></td>
+                                                                <td class="text-center" *ngIf="report.status == 'PENDING'">---</td>
                                                                 <td class="text-center" *ngIf="report.status == 'Assigned'"><span class="count">{{report?.assignedDocterName}}</span></td>
                                                                
                                                             </tr>  

@@ -141,4 +141,9 @@ export class ClientDashboardComponent implements OnInit {
       
    }
 
+    // Download Report Functionality
+  downloadReportFunc(reportUrl){
+    window.open(reportUrl,"_blank");
+  }
+
 }

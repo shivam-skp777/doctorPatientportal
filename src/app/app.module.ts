@@ -24,6 +24,7 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { MyProfileComponent } from './components/my-profile/my-profile.component';
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { ClientDashboardComponent } from './components/client-dashboard/client-dashboard.component';
+import { ReportListComponent } from './components/report-list/report-list.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { ClientDashboardComponent } from './components/client-dashboard/client-d
     EditUserComponent,
     MyProfileComponent,
     DoctorDashboardComponent,
-    ClientDashboardComponent
+    ClientDashboardComponent,
+    ReportListComponent
   ],
   imports: [
     BrowserModule,
