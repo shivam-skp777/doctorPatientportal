@@ -12,12 +12,12 @@
                                                         <thead>
                                                             <tr>
                                                                 <th class="serial">#</th>
-                                                                <th class="avatar">Avatar</th>                                            
+                                                                <th class="avatar">Report Image</th>                                            
                                                                 <th>Client Name:</th>
-                                                                <!-- <th class="text-center">Role</th> -->
+                                                                <th class="text-center">Report Analysis</th>
                                                                 <th class="text-center">Status</th>
                                                                 <th class="text-center">Date</th>
-                                                                <!-- <th class="text-center">Actions</th> -->
+                                                                <th class="text-center">Actions</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -31,9 +31,12 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>  <span class="name text-center">{{report?.clientName}}</span> </td>
+                                                                <td class="text-center" > <span class="badge badge-complete" *ngIf="report.status == 'IN PROGRESS'" (click)="analyseFunc(report)">Analyse</span><span class="count" *ngIf="report.status != 'IN PROGRESS'" >----</span></td>
                                                                 <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
                                                                 <td class="text-center" ><span class="count">{{report?.createdAt | date: 'short'}}</span></td>
-                                                               
+                                                                <td class="text-center" *ngIf="report.status == 'Assigned'"><a style="padding: 2px;" (click)="acceptReport(report)"><i class="fa fa-check fa-2x" style="color: green;"></i></a>
+                                                                    <a style="padding: 2px;" (click)="denyReport(report)"><i class="fa fa-times fa-2x" style="color: red;"></i></a> </td>
+                                                                    <td class="text-center" *ngIf="report.status != 'Assigned'"><span>---</span> </td>
                                                             </tr> 
                                                             <tr *ngIf="reportList == ''">
                                                                 <td class="serial">No Report List Available</td>   

@@ -16,8 +16,8 @@
                                                         <thead>
                                                             <tr>
                                                                 <th class="serial">#</th>
-                                                                <th class="avatar">Avatar</th>                                            
-                                                                <th>Name</th>
+                                                                <th class="avatar">Report Image</th>                                            
+                                                                <th>Client Name</th>
                                                                 <!-- <th class="text-center">Role</th> -->
                                                                 <th class="text-center">Status</th>
                                                                 <th class="text-center">Doctor Assigned</th>
@@ -33,9 +33,9 @@
                                                                         <a *ngIf="(report['reporturl'].includes('.pdf'))" [href]="report.reporturl" target="_blank">PDF</a>
                                                                     </div>
                                                                 </td>
-                                                                <td>  <span class="name text-center">Report {{i + 1}}</span> </td>
+                                                                <td>  <span class="name text-center">{{report?.clientName}}</span> </td>
                                                                 <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
-                                                                <td class="text-center" *ngIf="report.status == 'PENDING'">---</td>
+                                                                <td class="text-center" *ngIf="report.status != 'Assigned'">---</td>
                                                                 <td class="text-center" *ngIf="report.status == 'Assigned'"><span class="count">{{report?.assignedDocterName}}</span></td>
                                                                
                                                             </tr>  
