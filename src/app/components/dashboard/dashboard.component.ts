@@ -10,10 +10,12 @@ declare var jQuery:any;
 })
 export class DashboardComponent implements OnInit {
  userCount:any={'client':0 , 'doctor': 0, 'pending':0 , 'deleted':0}
+ reportList= new Array();
   constructor(public router:Router, public adminService: AdminService, public afterLoginService: AfterLoginService) { }
 
   ngOnInit() {
     this.getCountFunct();
+    this.getAllReportFunc();
   }
 
   goToUserList(){
@@ -36,6 +38,24 @@ export class DashboardComponent implements OnInit {
       }
     },err=>{
       this.adminService.showError(err['message'],'Dashboard')
+    })
+  }
+
+  // Get All The Report Present
+  getAllReportFunc(){
+    this.adminService.showSpinner();
+    this.afterLoginService.getAllClientReport().subscribe(res=>{
+      console.log('Response ---->>>',res);
+      this.adminService.hideSpinner();
+      if(res.status == '200'){
+       this.reportList  = res.data.filter(x=>(x.status != 'PENDING'));
+      }else{
+        this.adminService.showWarning(res['message'],'Report List')
+      }
+    },err=>{
+      console.log('Err=>',err);
+      this.adminService.hideSpinner();
+      this.adminService.showError(err['message'],'Report List')
     })
   }
 

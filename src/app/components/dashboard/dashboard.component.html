@@ -88,7 +88,7 @@
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-body">
-                                <h4 class="box-title">Orders </h4>
+                                <h4 class="box-title">Non-Pending Requests </h4>
                             </div>
                             <div class="card-body--">
                                 <div class="table-stats order-table ov-h">
@@ -96,90 +96,33 @@
                                         <thead>
                                             <tr>
                                                 <th class="serial">#</th>
-                                                <th class="avatar">Avatar</th>
-                                                <th>ID</th>
-                                                <th>Name</th>
-                                                <th>Product</th>
-                                                <th>Quantity</th>
+                                                <th class="avatar">Report Image</th>
+                                                <!-- <th>ID</th> -->
+                                                <th>Client Name</th>
+                                                <th>Assigned Doctor</th>
+                                                <th>Date</th>
                                                 <th>Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="serial">1.</td>
+                                            <tr *ngFor="let report of reportList; let i = index;">
+                                                <td class="serial">{{i + 1}}</td>
                                                 <td class="avatar">
                                                     <div class="round-img">
-                                                        <a><img class="rounded-circle" src="assets/images/avatar/1.jpg" alt=""></a>
+                                                        <a *ngIf="!(report.reporturl.includes('.pdf'))" (click)="downloadReportFunc(report.reporturl)"><img class="rounded-circle" [src]="report.reporturl" alt=""></a>
+                                                        <a *ngIf="(report['reporturl'].includes('.pdf'))" [href]="report.reporturl" target="_blank">PDF</a>
                                                     </div>
                                                 </td>
-                                                <td> #5469 </td>
-                                                <td>  <span class="name">Louis Stanley</span> </td>
-                                                <td> <span class="product">iMax</span> </td>
-                                                <td><span class="count">231</span></td>
+                                                <td>  <span class="name">{{report?.clientName}}</span> </td>
+                                                <td> <span class="product">{{report?.assignedDocterName}}</span> </td>
+                                                <td><span class="count">{{report?.createdAt | date : 'short'}}</span></td>
                                                 <td>
-                                                    <span class="badge badge-complete">Complete</span>
+                                                    <span class="badge badge-complete">{{report?.status}}</span>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="serial">2.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a><img class="rounded-circle" src="assets/images/avatar/2.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5468 </td>
-                                                <td>  <span class="name">Gregory Dixon</span> </td>
-                                                <td> <span class="product">iPad</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="serial">3.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a><img class="rounded-circle" src="assets/images/avatar/3.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5467 </td>
-                                                <td>  <span class="name">Catherine Dixon</span> </td>
-                                                <td> <span class="product">SSD</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="serial">4.</td>
-                                                <td class="avatar">
-                                                    <div class="round-img">
-                                                        <a><img class="rounded-circle" src="assets/images/avatar/4.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5466 </td>
-                                                <td>  <span class="name">Mary Silva</span> </td>
-                                                <td> <span class="product">Magic Mouse</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-pending">Pending</span>
-                                                </td>
-                                            </tr>
-                                            <tr class=" pb-0">
-                                                <td class="serial">5.</td>
-                                                <td class="avatar pb-0">
-                                                    <div class="round-img">
-                                                        <a><img class="rounded-circle" src="assets/images/avatar/6.jpg" alt=""></a>
-                                                    </div>
-                                                </td>
-                                                <td> #5465 </td>
-                                                <td>  <span class="name">Johnny Stephens</span> </td>
-                                                <td> <span class="product">Monitor</span> </td>
-                                                <td><span class="count">250</span></td>
-                                                <td>
-                                                    <span class="badge badge-complete">Complete</span>
-                                                </td>
-                                            </tr>
+                                            <tr *ngIf="reportList == ''">
+                                                <td class="serial">No Report List Available</td>  
+                                            </tr>                                      
                                         </tbody>
                                     </table>
                                 </div> <!-- /.table-stats -->

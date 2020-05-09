@@ -80,4 +80,23 @@ myProfileObserve = this.myProfileValue.asObservable();
     return this.adminService.getService('client/get_all_client_reports',this.adminService.getRequestHeaders());
   }
 
+  // Accept The assigned report by doctor
+  acceptAssignedReportApiFunc(reqBody){
+    return this.adminService.postService('client/confirmation_assign_request_by_doctor',reqBody,this.adminService.getRequestHeaders());
+  }
+
+     // Deny The assigned report by doctor
+  denyAssignedReportApiFunc(reqBody){
+    return this.adminService.postService('client/denied_assign_request_by_doctor',reqBody,this.adminService.getRequestHeaders());
+  }
+
+  // Report Analysis Api Functionality
+  reportAnalyseApiFunc(reqBody){
+    return this.adminService.reportAnalysisFunc(reqBody,this.adminService.getRequestHeaders());
+  }
+
+  // Save Report Analysis Api Function
+  saveAnalysedReportFunc(reqBody){
+    return this.adminService.postService('client/save_report_result',reqBody,this.adminService.getRequestHeaders());
+  }
 }
