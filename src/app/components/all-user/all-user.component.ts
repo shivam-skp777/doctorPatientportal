@@ -9,8 +9,10 @@ import { AfterLoginService } from 'src/app/provider/after-login.service';
   styleUrls: ['./all-user.component.css']
 })
 export class AllUserComponent implements OnInit {
-  userList:any=[];
+  userList=new Array();
   selectedUserId: string='';
+  filteredUserList= new Array();
+  filterFlag: boolean=false;
   constructor(public router:Router, public adminService: AdminService, public afterLoginService: AfterLoginService) { }
 
   ngOnInit() {
@@ -64,6 +66,18 @@ export class AllUserComponent implements OnInit {
       this.adminService.hideSpinner();
       this.adminService.showError(err.message,'Delete User')
     })
+  }
+
+  // Filter According To user role
+  filterByRole(event){
+    this.filteredUserList = new Array();
+    if(event.target.value != ''){
+      this.filterFlag = true;
+      let role = event.target.value;
+      this.filteredUserList = this.userList.filter(x=>(x.role == role))
+    }else{
+      this.filterFlag = false;
+    }
   }
 
 }
