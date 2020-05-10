@@ -26,6 +26,7 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr *ngFor="let report of reportList; let i = index;">
+                                                                <ng-container *ngIf="report.status == 'PENDING'">
                                                                 <td class="serial">{{i+1}}</td>
                                                                 <td class="avatar">
                                                                     <div class="round-img">
@@ -35,13 +36,13 @@
                                                                 </td>
                                                                 <td>  <span class="name text-center">Report {{i + 1}}</span> </td>
                                                                 <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
-                                                                <td class="text-center" *ngIf="report.status != 'Assigned'"> <select name="select" id="select" class="form-control" (change)="assignDoctor($event,report)">
+                                                                <td class="text-center" *ngIf="report.status == 'PENDING'"> <select name="select" id="select" class="form-control" (change)="assignDoctor($event,report)">
                                                                     <option value="">Please select</option>
                                                                     <option  *ngFor="let doctor of doctorList" [value]="doctor._id">{{doctor?.firstName}}{{doctor?.lastName}}</option>
                                                                   
                                                                 </select></td>
-                                                                <td class="text-center" *ngIf="report.status == 'Assigned'"><span class="count">{{report?.assignedDocterName}}</span></td>
-                                                               
+                                                                <!-- <td class="text-center" *ngIf="report.status == 'Assigned'"><span class="count">{{report?.assignedDocterName}}</span></td> -->
+                                                            </ng-container>
                                                             </tr>  
                                                             <tr *ngIf="reportList == ''">
                                                                 <td class="serial">No Report List Available</td>                                                             
