@@ -13,9 +13,14 @@
                 <div class="col-xl-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="box-title">Client/Users </h4>
+                            <h4 class="box-title">User List:</h4>
+                            <select name="select" id="select" class="form-control filter" (change)="filterByRole($event)">
+                                <option value="">Please select</option>
+                                <option value="2">Client</option>
+                                <option value="3">Doctor</option>
+                            </select>
                         </div>
-                        <div class="card-body--">
+                        <div class="card-body">
                             <div class="table-stats order-table ov-h">
                                 <table class="table ">
                                     <thead>
@@ -29,7 +34,7 @@
                                             <th class="text-center">Actions</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody *ngIf="!filterFlag">
                                         <tr *ngFor="let user of userList; let i = index;">
                                             <td class="serial">{{i+1}}</td>
                                             <!-- <td class="avatar">
@@ -49,7 +54,35 @@
                                                 <!-- <a><i class="fa fa-check fa-2x"></i></a>
                                                 <a><i class="fa fa-times fa-2x"></i></a> -->
                                             </td>
-                                        </tr>                                       
+                                        </tr>   
+                                        <tr *ngIf="userList == ''">
+                                            <td class="serial">No User Available</td>                                                             
+                                        </tr>                                      
+                                    </tbody>
+                                    <tbody *ngIf="filterFlag">
+                                        <tr *ngFor="let user of filteredUserList; let i = index;">
+                                            <td class="serial">{{i+1}}</td>
+                                            <!-- <td class="avatar">
+                                                <div class="round-img">
+                                                    <a><img class="rounded-circle" src="assets/images/avatar/1.jpg" alt=""></a>
+                                                </div>
+                                            </td> -->
+                                            <td>  <span class="name text-center">{{user?.firstName}}{{user?.lastName}}</span> </td>
+                                            <td *ngIf="user.role == '2'" class="text-center"> <span class="product">Client</span> </td>
+                                            <td  *ngIf="user.role == '3'" class="text-center"> <span class="product">Doctor</span> </td>
+                                            <td class="text-center"><span class="count">{{user?.mobileNumber}}</span></td>
+                                            <td class="text-center"><span class="count">{{user?.email}}</span></td>
+                                            <td class="text-center">
+                                                <!-- <a class="icon-style" (click)=""><i class="fa fa-eye fa-2x"></i></a> -->
+                                                <a class="icon-style" (click)="editUserFunction(user._id)"><i class="fa fa-pencil fa-2x"></i></a>
+                                                <a class="icon-style" (click)="deleteUserFunction(user._id)"><i class="fa fa-trash fa-2x"></i></a>
+                                                <!-- <a><i class="fa fa-check fa-2x"></i></a>
+                                                <a><i class="fa fa-times fa-2x"></i></a> -->
+                                            </td>
+                                        </tr>   
+                                        <tr *ngIf="userList == ''">
+                                            <td class="serial">No User Available</td>                                                             
+                                        </tr>                                      
                                     </tbody>
                                 </table>
                             </div> <!-- /.table-stats -->

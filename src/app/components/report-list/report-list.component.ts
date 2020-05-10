@@ -25,7 +25,7 @@ export class ReportListComponent implements OnInit {
       this.adminService.hideSpinner();
       console.log('Response ---->',res);
       if(res.status == '200'){
-      this.reportList = res.data;
+      this.reportList = res.data.filter(x=>(x.status == 'PENDING'));
       }else{
         this.adminService.showWarning(res['message'],'Report List');
       }
