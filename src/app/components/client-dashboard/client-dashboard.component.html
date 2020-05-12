@@ -8,7 +8,7 @@
                                     <div class="col-xl-12">
                                         <div class="card">
                                             <div class="card-body">
-                                                <h4 class="box-title">Client/Users </h4>
+                                                <h4 class="box-title">Client Report: </h4>
                                             </div>
                                             <div class="card-body--">
                                                 <div class="table-stats order-table ov-h">
@@ -17,7 +17,7 @@
                                                             <tr>
                                                                 <th class="serial">#</th>
                                                                 <th class="avatar">Report Image</th>                                            
-                                                                <th>Client Name</th>
+                                                                <!-- <th>Client Name</th> -->
                                                                 <!-- <th class="text-center">Role</th> -->
                                                                 <th class="text-center">Status</th>
                                                                 <th class="text-center">Doctor Assigned</th>
@@ -33,10 +33,10 @@
                                                                         <a *ngIf="(report['reporturl'].includes('.pdf'))" [href]="report.reporturl" target="_blank">PDF</a>
                                                                     </div>
                                                                 </td>
-                                                                <td>  <span class="name text-center">{{report?.clientName}}</span> </td>
+                                                                <!-- <td>  <span class="name text-center">{{report?.clientName}}</span> </td> -->
                                                                 <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
-                                                                <td class="text-center" *ngIf="report.status != 'Assigned'">---</td>
-                                                                <td class="text-center" *ngIf="report.status == 'Assigned'"><span class="count">{{report?.assignedDocterName}}</span></td>
+                                                                <td class="text-center" *ngIf="(report.status != 'Assigned')&&(report.status != 'IN PROGRESS')">---</td>
+                                                                <td class="text-center" *ngIf="(report.status == 'Assigned')||(report.status == 'IN PROGRESS')"><span class="count">{{report?.assignedDocterName}}</span></td>
                                                                
                                                             </tr>  
                                                             <tr *ngIf="reportList == ''">
@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="card-footer">
                                                 <a class="links btn btn-primary btn-sm" >
-                                                    <input type="file" id="file-input"  name="file-input" class="form-control-file" (change)="getImageData($event)">
+                                                    <input type="file" id="file-input"  name="file-input" class="form-control-file" (change)="getImageData($event)" accept=".pdf">
                                                 </a>
                                             </div>
                                         </div> <!-- /.card -->
