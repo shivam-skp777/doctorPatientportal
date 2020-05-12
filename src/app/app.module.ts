@@ -25,6 +25,9 @@ import { MyProfileComponent } from './components/my-profile/my-profile.component
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { ClientDashboardComponent } from './components/client-dashboard/client-dashboard.component';
 import { ReportListComponent } from './components/report-list/report-list.component';
+import { CompleteReportComponent } from './components/complete-report/complete-report.component';
+// import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+// const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
 @NgModule({
   declarations: [
@@ -43,7 +46,8 @@ import { ReportListComponent } from './components/report-list/report-list.compon
     MyProfileComponent,
     DoctorDashboardComponent,
     ClientDashboardComponent,
-    ReportListComponent
+    ReportListComponent,
+    CompleteReportComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,8 @@ import { ReportListComponent } from './components/report-list/report-list.compon
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    // SocketIoModule.forRoot(config)
   ],
   providers: [AdminService,AuthService],
   bootstrap: [AppComponent]

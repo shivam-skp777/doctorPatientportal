@@ -24,7 +24,7 @@ export class ClientDashboardComponent implements OnInit {
     // this.IdURLs
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
-      if (file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/png' || (file.type === 'application/pdf')) {
+      if ((file.type === 'application/pdf')) {
         if (file.size < 5000000) {
           // this.uploadingIdError['backId'] = { show: false, msg: '' };
           this.id= event.target.files[0];
