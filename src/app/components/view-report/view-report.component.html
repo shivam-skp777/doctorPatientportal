@@ -24,7 +24,7 @@
                                                             <tr *ngFor="let report of selectedReport; let i = index;">
                                                                 <td class="serial">{{i+1}}</td>
                                                                 <td>  <span class="name text-center">{{report?.name}}</span> </td>
-                                                                <td class="text-center" > <span class="badge badge-complete">{{report?.Value}}</span></td>
+                                                                <td class="text-center" > <span>{{report?.Value}}</span></td>
                                                                 <td  class="text-center"> <span class="product">{{report?.Unit}}</span> </td>
                                                             </tr> 
                                                             <tr *ngIf="reportList == ''">
