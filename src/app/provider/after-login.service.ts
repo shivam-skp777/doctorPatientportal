@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AdminService } from './admin.service';
 import { BehaviorSubject } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -92,11 +93,19 @@ myProfileObserve = this.myProfileValue.asObservable();
 
   // Report Analysis Api Functionality
   reportAnalyseApiFunc(reqBody){
-    return this.adminService.reportAnalysisFunc(reqBody,this.adminService.getRequestHeaders());
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.adminService.reportAnalysisFunc(reqBody,headers);
   }
 
   // Save Report Analysis Api Function
   saveAnalysedReportFunc(reqBody){
     return this.adminService.postService('client/save_report_result',reqBody,this.adminService.getRequestHeaders());
+  }
+
+  // Get Complete Report List 
+  getCompleteReportList(){
+    return this.adminService.getService('client/get_all_complerte_report',this.adminService.getRequestHeaders());
   }
 }

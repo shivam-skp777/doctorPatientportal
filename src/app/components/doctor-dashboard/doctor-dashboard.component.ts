@@ -27,7 +27,7 @@ export class DoctorDashboardComponent implements OnInit {
       console.log('Response --->',res);
       this.adminService.hideSpinner();
       if(res.status == '200'){
-        this.reportList = res['data'];
+        this.reportList = res['data'].filter(x=>(x.status != 'COMPLETE'));
       }else{
         this.adminService.showWarning(res['message'],'Report List');
       }
@@ -103,11 +103,11 @@ export class DoctorDashboardComponent implements OnInit {
     this.afterLoginService.reportAnalyseApiFunc(apiReq).subscribe(res=>{
       console.log('report analysis res---->',res);
       this.adminService.hideSpinner();
-      if(res.status == '200'){
-     this.saveAnalysedReportFunc(res['Result']);
-      }else{
-       this.adminService.showWarning(res['message'],'Report Analysis')
-      }
+      // if(res.status == '200'){
+     this.saveAnalysedReportFunc(res['Response']['Result']);
+      // }else{
+      //  this.adminService.showWarning(res['message'],'Report Analysis')
+      // }
     },err=>{
       console.log('report analysis err---->',err);
       this.adminService.hideSpinner();
@@ -118,14 +118,14 @@ export class DoctorDashboardComponent implements OnInit {
   // Saved Analysed Report Function
   saveAnalysedReportFunc(analysedReport){
     let apiReq = {
-      "_id":this.selectedReport['_id'],"reporturl":this.selectedReport['reporturl'],"clientId":this.selectedReport['clientId'],"assignedDocterName":this.selectedReport['assignedDoctorName'],"clientName":this.selectedReport['clientName'],"assignedDocterId":this.selectedReport['assignedDoctorId'] , "status":this.selectedReport['status'],"result":JSON.stringify(analysedReport)
+      "_id":this.selectedReport['_id'],"reporturl":this.selectedReport['reporturl'],"clientId":this.selectedReport['clientId'],"assignedDocterName":this.selectedReport['assignedDoctorName'],"clientName":this.selectedReport['clientName'],"assignedDocterId":this.selectedReport['assignedDoctorId'] , "status":'COMPLETE',"result":JSON.stringify(analysedReport)
     }
     this.adminService.showSpinner();
     this.afterLoginService.saveAnalysedReportFunc(apiReq).subscribe(res=>{
       console.log('saved report analysis res---->',res);
       this.adminService.hideSpinner();
       if(res.status == '200'){
-     
+       this.getReportList();
       }else{
        this.adminService.showWarning(res['message'],'Report Analysis')
       }
