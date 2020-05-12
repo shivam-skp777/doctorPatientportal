@@ -13,6 +13,7 @@ import { ClientDashboardComponent } from './components/client-dashboard/client-d
 import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-dashboard.component';
 import { ReportListComponent } from './components/report-list/report-list.component';
 import { CompleteReportComponent } from './components/complete-report/complete-report.component';
+import { ViewReportComponent } from './components/view-report/view-report.component';
 
 
 const routes: Routes = [
@@ -29,7 +30,8 @@ const routes: Routes = [
 {path:'doctorDashboard',component:DoctorDashboardComponent},
 {path:'clientDashboard',component:ClientDashboardComponent},
 {path:'reportList', component:ReportListComponent},
-{path:'complete-report', component:CompleteReportComponent}
+{path:'complete-report', component:CompleteReportComponent},
+{path:'paticular-report', component:ViewReportComponent}
 ];
 
 @NgModule({

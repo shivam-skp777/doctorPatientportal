@@ -31,7 +31,7 @@
                                                                     </div>
                                                                 </td>
                                                                 <td>  <span class="name text-center">{{report?.clientName}}</span> </td>
-                                                                <td class="text-center" > <span class="badge badge-complete" *ngIf="report.status == 'IN PROGRESS'" (click)="analyseFunc(report)">Analyse</span><span class="count" *ngIf="report.status != 'IN PROGRESS'" >----</span></td>
+                                                                <td class="text-center" > <span class="badge badge-complete" *ngIf="report.status == 'IN PROGRESS'" (click)="analyseFunc(report)">Analyse</span><span class="count" *ngIf="(report.status != 'IN PROGRESS')&&(report.status != 'Complete')&&(report.status != 'COMPLETE')" >----</span><span class="badge badge-complete" *ngIf="(report.status == 'Complete')||(report.status == 'COMPLETE')" (click)="viewReport(report['_id'])">View Report</span></td>
                                                                 <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
                                                                 <td class="text-center" ><span class="count">{{report?.createdAt | date: 'short'}}</span></td>
                                                                 <td class="text-center" *ngIf="report.status == 'Assigned'"><a style="padding: 2px;" (click)="acceptReport(report)"><i class="fa fa-check fa-2x" style="color: green;"></i></a>

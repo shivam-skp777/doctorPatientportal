@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminService } from 'src/app/provider/admin.service';
 import { AfterLoginService } from 'src/app/provider/after-login.service';
 import { saveAs } from 'file-saver';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-dashboard',
@@ -12,7 +13,7 @@ export class DoctorDashboardComponent implements OnInit {
   reportList = new Array();
   selectedReport = new Object();
   medicalKeyward = new Array();
-  constructor(public adminService: AdminService,public afterLoginService: AfterLoginService) {
+  constructor(public adminService: AdminService,public afterLoginService: AfterLoginService,public route: Router) {
     this.medicalKeyward = this.adminService.reportKeywards;
    }
 
@@ -27,7 +28,7 @@ export class DoctorDashboardComponent implements OnInit {
       console.log('Response --->',res);
       this.adminService.hideSpinner();
       if(res.status == '200'){
-        this.reportList = res['data'].filter(x=>(x.status != 'COMPLETE'));
+        this.reportList = res['data'];
       }else{
         this.adminService.showWarning(res['message'],'Report List');
       }
@@ -134,5 +135,16 @@ export class DoctorDashboardComponent implements OnInit {
       this.adminService.hideSpinner();
       this.adminService.showError(err['message'],'Report Analysis')
     })
+  }
+
+  // View Analysed Report
+  viewReport(reportId){
+    console.log('Report Id--->',reportId)
+    let reportData: NavigationExtras = {
+      queryParams: {
+          reportID: reportId
+      }
+   };
+   this.route.navigate(['/paticular-report'],reportData);
   }
 }
