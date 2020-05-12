@@ -35,13 +35,8 @@
                                                                 </td>
                                                                 <!-- <td>  <span class="name text-center">{{report?.clientName}}</span> </td> -->
                                                                 <td  class="text-center"> <span class="product">{{report?.status}}</span> </td>
-<<<<<<< HEAD
-                                                                <td class="text-center" *ngIf="report.status == 'PENDING'">---</td>
-                                                                <td class="text-center" *ngIf="report.status == 'Assigned' || report.status == 'IN PROGRESS' "><span class="count">{{report?.assignedDocterName}}</span></td>
-=======
                                                                 <td class="text-center" *ngIf="(report.status != 'Assigned')&&(report.status != 'IN PROGRESS')">---</td>
                                                                 <td class="text-center" *ngIf="(report.status == 'Assigned')||(report.status == 'IN PROGRESS')"><span class="count">{{report?.assignedDocterName}}</span></td>
->>>>>>> 0964fe9e51c6459edbb36526007959ba0351c992
                                                                
                                                             </tr>  
                                                             <tr *ngIf="reportList == ''">
