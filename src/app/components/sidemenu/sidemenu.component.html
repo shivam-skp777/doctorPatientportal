@@ -24,7 +24,7 @@
                 *ngIf="userType == '1'">
                     <a [routerLink]="['/reportList']"><i class="menu-icon fa fa-file"></i>Request List </a>
                 </li>
-                <li>
+                <li *ngIf="userType != '1'">
                     <a [routerLink]="['/complete-report']"><i class="menu-icon fa fa-file"></i>Completed Report</a>
                 </li>
             </ul>

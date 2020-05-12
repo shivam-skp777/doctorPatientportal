@@ -26,6 +26,7 @@ import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-d
 import { ClientDashboardComponent } from './components/client-dashboard/client-dashboard.component';
 import { ReportListComponent } from './components/report-list/report-list.component';
 import { CompleteReportComponent } from './components/complete-report/complete-report.component';
+import { ViewReportComponent } from './components/view-report/view-report.component';
 // import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 // const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -47,7 +48,8 @@ import { CompleteReportComponent } from './components/complete-report/complete-r
     DoctorDashboardComponent,
     ClientDashboardComponent,
     ReportListComponent,
-    CompleteReportComponent
+    CompleteReportComponent,
+    ViewReportComponent
   ],
   imports: [
     BrowserModule,

@@ -24,8 +24,8 @@ export class ClientDashboardComponent implements OnInit {
     // this.IdURLs
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
-      if ((file.type === 'application/pdf')) {
-        if (file.size < 5000000) {
+      if (file.type === 'image/jpeg' || file.type === 'image/jpg' || file.type === 'image/png' || (file.type === 'application/pdf')) {
+        // if (file.size < 5000000) {
           // this.uploadingIdError['backId'] = { show: false, msg: '' };
           this.id= event.target.files[0];
           const reader = new FileReader();
@@ -36,7 +36,7 @@ export class ClientDashboardComponent implements OnInit {
           let file = event.target.files;
 
           this.uploadImage(file.item(0));
-        }
+        //}
       }
     }
   }
@@ -50,7 +50,6 @@ export class ClientDashboardComponent implements OnInit {
      this.adminService.hideSpinner();
      if(res.status == '200'){
        this.addReportFunc(res);
-      //  this.reportUrl = res['data']['ref_link'];
      }
    },err=>{
      this.adminService.hideSpinner();
@@ -116,30 +115,30 @@ export class ClientDashboardComponent implements OnInit {
      })
    }
 
-   // Assigned Doctor To Report Functionality
-   assignDoctor(event,reportObj){
-     console.log('Doctor---->',event,reportObj);
-     let doctorName = this.doctorList.filter(x=>(x._id == event.target.value))
-     let clientName = localStorage.getItem('firstName')+" "+localStorage.getItem('lastName');
-     let apiReq = {
-      "_id":reportObj._id,"reporturl":reportObj.reporturl,"clientId":reportObj.clientId,"assignedDocterId":event.target.value, status:"Assigned",assignedDocterName: doctorName[0].firstName+" "+doctorName[0].lastName, clientName: clientName
-      }
-      this.adminService.showSpinner();
-      this.afterLogin.assignDoctor(apiReq).subscribe(res=>{
-        console.log('Response ---->',res);
-        this.adminService.hideSpinner();
-        if(res.status == '200'){
-          this.getAllClientReportFunc();
-        }else{
-          this.adminService.showWarning(res['message'],'Assign Doctor');
-        }
-      },err=>{
-        this.adminService.hideSpinner();
-        console.log('err--->',err);
-        this.adminService.showError(err['message'],'Assign Doctor');
-      })
+  //  // Assigned Doctor To Report Functionality
+  //  assignDoctor(event,reportObj){
+  //    console.log('Doctor---->',event,reportObj);
+  //    let doctorName = this.doctorList.filter(x=>(x._id == event.target.value))
+  //    let clientName = localStorage.getItem('firstName')+" "+localStorage.getItem('lastName');
+  //    let apiReq = {
+  //     "_id":reportObj._id,"reporturl":reportObj.reporturl,"clientId":reportObj.clientId,"assignedDocterId":event.target.value, status:"Assigned",assignedDocterName: doctorName[0].firstName+" "+doctorName[0].lastName, clientName: clientName
+  //     }
+  //     this.adminService.showSpinner();
+  //     this.afterLogin.assignDoctor(apiReq).subscribe(res=>{
+  //       console.log('Response ---->',res);
+  //       this.adminService.hideSpinner();
+  //       if(res.status == '200'){
+  //         this.getAllClientReportFunc();
+  //       }else{
+  //         this.adminService.showWarning(res['message'],'Assign Doctor');
+  //       }
+  //     },err=>{
+  //       this.adminService.hideSpinner();
+  //       console.log('err--->',err);
+  //       this.adminService.showError(err['message'],'Assign Doctor');
+  //     })
       
-   }
+  //  }
 
     // Download Report Functionality
   downloadReportFunc(reportUrl){

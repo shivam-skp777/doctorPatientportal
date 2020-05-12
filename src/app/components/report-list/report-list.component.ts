@@ -10,11 +10,13 @@ import { AfterLoginService } from 'src/app/provider/after-login.service';
 export class ReportListComponent implements OnInit {
   reportList = new Array();
   doctorList = new Array();
+  userList = new Array();
   constructor(public adminService:AdminService,public afterLogin: AfterLoginService) { }
 
   ngOnInit() {
     this.getAllClientReportFunc();
     this.getDoctorListFunction();
+    this.getClientListFunc();
   }
 
    // Get All Client Report Function
@@ -54,13 +56,30 @@ export class ReportListComponent implements OnInit {
      })
    }
 
+   // Get List OF Client Functionality
+  getClientListFunc(){
+    this.adminService.showSpinner();
+    this.afterLogin.getAllUserList().subscribe(res=>{
+      console.log("Res--->>>",res);
+      this.adminService.hideSpinner();
+      if(res.status == '200'){
+        this.userList = res['data'];
+      }else{
+        this.adminService.showWarning(res['message'],'User List');
+      }
+    },err=>{
+      this.adminService.hideSpinner();
+      this.adminService.showError(err['message'],'User List');
+    })
+  }
+
    // Assigned Doctor To Report Functionality
    assignDoctor(event,reportObj){
      console.log('Doctor---->',event,reportObj);
      let doctorName = this.doctorList.filter(x=>(x._id == event.target.value))
-     let clientName = localStorage.getItem('firstName')+" "+localStorage.getItem('lastName');
+     let clientName = this.userList.filter(x=>(x._id == reportObj.clientId));
      let apiReq = {
-      "_id":reportObj._id,"reporturl":reportObj.reporturl,"clientId":reportObj.clientId,"assignedDocterId":event.target.value, status:"Assigned",assignedDocterName: doctorName[0].firstName+" "+doctorName[0].lastName, clientName: clientName
+      "_id":reportObj._id,"reporturl":reportObj.reporturl,"clientId":reportObj.clientId,"assignedDocterId":event.target.value, status:"Assigned",assignedDocterName: doctorName[0].firstName+" "+doctorName[0].lastName, clientName: clientName[0].firstName + " " + clientName[0].lastName
       }
       this.adminService.showSpinner();
       this.afterLogin.assignDoctor(apiReq).subscribe(res=>{

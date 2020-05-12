@@ -1,0 +1,45 @@
+
+                            <div class="orders">
+                                <div class="row">
+                                    <div class="col-xl-12">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <span class="box-title">Analysed Report:</span>
+                                                <a class="links btn btn-primary btn-sm shift" (click)="downloadAsPdf()">
+                                                    Download As Pdf
+                                                 </a>
+                                            </div>
+                                            <div class="card-body--" id="report">
+                                                <div class="table-stats order-table ov-h">
+                                                    <table class="table ">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="serial">#</th>
+                                                                <th class="avatar">Name</th> 
+                                                                <th class="text-center">Value</th>
+                                                                <th class="text-center">Unit</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let report of selectedReport; let i = index;">
+                                                                <td class="serial">{{i+1}}</td>
+                                                                <td>  <span class="name text-center">{{report?.name}}</span> </td>
+                                                                <td class="text-center" > <span class="badge badge-complete">{{report?.Value}}</span></td>
+                                                                <td  class="text-center"> <span class="product">{{report?.Unit}}</span> </td>
+                                                            </tr> 
+                                                            <tr *ngIf="reportList == ''">
+                                                                <td class="serial">No Report Available</td>   
+                                                            </tr>                                        
+                                                        </tbody>
+                                                    </table>
+                                                </div> <!-- /.table-stats -->
+                                            </div>
+                                            <!-- <div class="card-footer">
+                                                <a class="links btn btn-primary btn-sm" (click)="downloadAsPdf()">
+                                                   Download As Pdf
+                                                </a>
+                                            </div> -->
+                                        </div> <!-- /.card -->
+                                    </div>  <!-- /.col-lg-8 -->
+                                </div>
+                            </div>
