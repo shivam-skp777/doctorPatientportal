@@ -27,6 +27,7 @@ import { ClientDashboardComponent } from './components/client-dashboard/client-d
 import { ReportListComponent } from './components/report-list/report-list.component';
 import { CompleteReportComponent } from './components/complete-report/complete-report.component';
 import { ViewReportComponent } from './components/view-report/view-report.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 // import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 // const config: SocketIoConfig = { url: 'http://localhost:4444', options: {} };
 
@@ -49,7 +50,8 @@ import { ViewReportComponent } from './components/view-report/view-report.compon
     ClientDashboardComponent,
     ReportListComponent,
     CompleteReportComponent,
-    ViewReportComponent
+    ViewReportComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,

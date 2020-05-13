@@ -108,4 +108,19 @@ myProfileObserve = this.myProfileValue.asObservable();
   getCompleteReportList(){
     return this.adminService.getService('client/get_all_complerte_report',this.adminService.getRequestHeaders());
   }
+
+  // Get Notification List
+  getNotificationList(){
+    return this.adminService.getService('client/get_all_notification',this.adminService.getRequestHeaders());
+  }
+
+  // Mark As Read Functionality
+  markAsRead(reqBody){
+    return this.adminService.postService('client/read_notification',reqBody,this.adminService.getRequestHeaders());
+  }
+
+  // Change Password Functionality
+  changeFunc(reqBody){
+    return this.adminService.postService('auth/change_password',reqBody,this.adminService.getRequestHeaders());
+  }
 }

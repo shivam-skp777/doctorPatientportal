@@ -14,6 +14,7 @@ import { DoctorDashboardComponent } from './components/doctor-dashboard/doctor-d
 import { ReportListComponent } from './components/report-list/report-list.component';
 import { CompleteReportComponent } from './components/complete-report/complete-report.component';
 import { ViewReportComponent } from './components/view-report/view-report.component';
+import { ChangePasswordComponent } from './components/change-password/change-password.component';
 
 
 const routes: Routes = [
@@ -31,7 +32,8 @@ const routes: Routes = [
 {path:'clientDashboard',component:ClientDashboardComponent},
 {path:'reportList', component:ReportListComponent},
 {path:'complete-report', component:CompleteReportComponent},
-{path:'paticular-report', component:ViewReportComponent}
+{path:'paticular-report', component:ViewReportComponent},
+{path:'change-password', component:ChangePasswordComponent}
 ];
 
 @NgModule({
