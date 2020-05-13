@@ -60,7 +60,8 @@ export class ClientDashboardComponent implements OnInit {
   // Add Report Functionality
   addReportFunc(response){
     let apiReq = {
-      'reporturl':response.data['ref_link']
+      'reporturl':response.data['ref_link'],
+      'clientName': localStorage.getItem('firstName')+' '+localStorage.getItem('lastName')
     };
     this.adminService.showSpinner();
     this.afterLogin.addReportFunction(apiReq).subscribe(res=>{
