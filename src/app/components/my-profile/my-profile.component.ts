@@ -29,7 +29,7 @@ export class MyProfileComponent implements OnInit {
       }
     },err=>{
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'Get Profile');
+      this.adminService.showError('Something Went Wrong','Get Profile');
     })
   }
 

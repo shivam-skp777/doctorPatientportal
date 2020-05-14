@@ -38,7 +38,7 @@ selectedReport = new Object();
       }
     },err=>{
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'Complete Report');
+      this.adminService.showError('Something Went Wrong','Complete Report');
     })
   }
 

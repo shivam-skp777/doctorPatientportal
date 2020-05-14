@@ -32,7 +32,7 @@ export class AllUserComponent implements OnInit {
       }
     },err=>{
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'User List');
+      this.adminService.showError('Something Went Wrong','User List');
     })
   }
 

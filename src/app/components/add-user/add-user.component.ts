@@ -52,7 +52,7 @@ export class AddUserComponent implements OnInit {
     }
   },err=>{
     this.adminService.hideSpinner();
-    this.adminService.showError(err['message'],'Registration');
+    this.adminService.showError('Something Went Wrong','Registration');
   })
   }
 }

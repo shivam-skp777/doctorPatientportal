@@ -37,7 +37,7 @@ export class DashboardComponent implements OnInit {
         this.adminService.showWarning(res['message'],'Dashboard')
       }
     },err=>{
-      this.adminService.showError(err['message'],'Dashboard')
+      this.adminService.showError('Something Went Wrong','Dashboard')
     })
   }
 
@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
     },err=>{
       console.log('Err=>',err);
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'Report List')
+      this.adminService.showError('Something Went Wrong','Report List')
     })
   }
 

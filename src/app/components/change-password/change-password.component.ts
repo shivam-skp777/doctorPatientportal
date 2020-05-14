@@ -36,7 +36,7 @@ export class ChangePasswordComponent implements OnInit {
         }
       },err=>{
         this.adminService.hideSpinner();
-        this.adminService.showError(err['message'],'Get Profile');
+        this.adminService.showError('Something Went Wrong','Get Profile');
       })
     }
   
@@ -71,7 +71,7 @@ export class ChangePasswordComponent implements OnInit {
           }
         },err=>{
           this.adminService.hideSpinner();
-          this.adminService.showError(err['message'],'Change Password');
+          this.adminService.showError('Something Went Wrong','Change Password');
         })
       }    
     }
