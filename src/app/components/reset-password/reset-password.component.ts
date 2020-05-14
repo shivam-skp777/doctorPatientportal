@@ -55,7 +55,7 @@ otp:string;
         }
       },err=>{
         this.adminService.hideSpinner();
-        this.adminService.showError(err['message'],'Reset Password');
+        this.adminService.showError('Something Went Wrong','Reset Password');
       })
     }    
   }

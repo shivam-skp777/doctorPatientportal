@@ -75,7 +75,7 @@ export class ClientDashboardComponent implements OnInit {
       }
     }, err=>{
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'Upload Report')
+      this.adminService.showError('Something Went Wrong','Upload Report')
     })
   }
 
@@ -92,7 +92,7 @@ export class ClientDashboardComponent implements OnInit {
         this.adminService.showWarning(res['message'],'Report List');
       }
     },err=>{
-      this.adminService.showError(err['message'],'Report List');
+      this.adminService.showError('Something Went Wrong','Report List');
       this.adminService.hideSpinner();
        console.log("Error --->>>",err)
     })
@@ -112,7 +112,7 @@ export class ClientDashboardComponent implements OnInit {
      },err=>{
        console.log('Err--->',err);
        this.adminService.hideSpinner();
-       this.adminService.showError(err['message'],'Doctor List')
+       this.adminService.showError('Something Went Wrong','Doctor List')
      })
    }
 
@@ -136,7 +136,7 @@ export class ClientDashboardComponent implements OnInit {
   //     },err=>{
   //       this.adminService.hideSpinner();
   //       console.log('err--->',err);
-  //       this.adminService.showError(err['message'],'Assign Doctor');
+  //       this.adminService.showError('Something Went Wrong','Assign Doctor');
   //     })
       
   //  }

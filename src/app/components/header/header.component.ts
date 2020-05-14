@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
     },err=>{
       console.log('Err--->',err);
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'Notification List')
+      this.adminService.showError('Something Went Wrong','Notification List')
     })
   }
   
@@ -59,7 +59,7 @@ export class HeaderComponent implements OnInit {
       }
     },err=>{
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'Read Notification');
+      this.adminService.showError('Something Went Wrong','Read Notification');
     })
   }
 }

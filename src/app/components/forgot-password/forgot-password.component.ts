@@ -45,7 +45,7 @@ otpFlag:boolean=false;
       },err=>{
         this.adminService.hideSpinner();
         this.otpFlag = true;
-        this.adminService.showError(err['message'],'Forgot Password');
+        this.adminService.showError('Something Went Wrong','Forgot Password');
       })
     }   
   }
@@ -78,7 +78,7 @@ otpFlag:boolean=false;
         }
       },err=>{
         this.adminService.hideSpinner();
-        this.adminService.showError(err['message'],'OTP');
+        this.adminService.showError('Something Went Wrong','OTP');
       })  
     }       
   }

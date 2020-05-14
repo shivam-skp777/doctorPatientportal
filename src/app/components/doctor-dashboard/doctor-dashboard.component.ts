@@ -35,7 +35,7 @@ export class DoctorDashboardComponent implements OnInit {
     },err=>{
       this.adminService.hideSpinner();
       console.log('Error---->',err);
-      this.adminService.showError(err['message'],'Report List');
+      this.adminService.showError('Something Went Wrong','Report List');
     })
   }
 
@@ -69,7 +69,7 @@ export class DoctorDashboardComponent implements OnInit {
         }
       },err=>{
         this.adminService.hideSpinner();
-        this.adminService.showError(err['message'],'Accept Report')
+        this.adminService.showError('Something Went Wrong','Accept Report')
       })
   }
 
@@ -89,7 +89,7 @@ export class DoctorDashboardComponent implements OnInit {
         }
       },err=>{
         this.adminService.hideSpinner();
-        this.adminService.showError(err['message'],'Deny Report')
+        this.adminService.showError('Something Went Wrong','Deny Report')
       })
   }
 
@@ -112,7 +112,7 @@ export class DoctorDashboardComponent implements OnInit {
     },err=>{
       console.log('report analysis err---->',err);
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'Report Analysis')
+      this.adminService.showError('Something Went Wrong','Report Analysis')
     })
   }
 
@@ -133,7 +133,7 @@ export class DoctorDashboardComponent implements OnInit {
     },err=>{
       console.log('saved report analysis err---->',err);
       this.adminService.hideSpinner();
-      this.adminService.showError(err['message'],'Report Analysis')
+      this.adminService.showError('Something Went Wrong','Report Analysis')
     })
   }
 

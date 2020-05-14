@@ -84,7 +84,7 @@ export class EditUserComponent implements OnInit {
      }
    },err=>{
      this.adminService.hideSpinner();
-     this.adminService.showError(err['message'],'Edit User');
+     this.adminService.showError('Something Went Wrong','Edit User');
    })
   }
 
