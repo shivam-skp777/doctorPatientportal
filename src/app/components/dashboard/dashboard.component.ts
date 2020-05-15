@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
       if(res.status == '200'){
         this.userCount['client'] = res.data['client'][0].client;
         this.userCount['doctor'] = res.data['doctor'][0].doctor;
-        // this.userCount['pending'] = res.data['pending'][0].pending;
+        this.userCount['pending'] = res.data['pending'][0].pending_request;
         this.userCount['complete'] = res.data['complete'][0].complete_request;
       }else{
         this.adminService.showWarning(res['message'],'Dashboard')
