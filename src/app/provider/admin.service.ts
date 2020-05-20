@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AdminService {
-public baseUrl:string='http://13.233.217.250:5000//insurex/v1/';
+public baseUrl:string='http://13.233.217.250:5000/insurex/v1/';
   authToken: string='';
   public reportKeywards =[
     "HAEMATOLOGY",
@@ -203,7 +203,7 @@ public handleError(error: Response | any) {
 
   /***************** Form Data Based Api **********************/ 
   public postFormService(url, postObj): Observable<any> {
-    let baseUrl = 'http://13.233.217.250:5000//insurex/v1/'+url;
+    let baseUrl = 'http://13.233.217.250:5000/insurex/v1/'+url;
     return this.http.post(baseUrl, postObj)
         .pipe(catchError(err => this.handleError(err)));
   }
