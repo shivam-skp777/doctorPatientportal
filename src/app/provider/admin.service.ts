@@ -216,7 +216,7 @@ public handleError(error: Response | any) {
 
   /************* Report Analysis Api Functionality **************/
   public reportAnalysisFunc(postObj,headers): Observable<any> {
-    let baseUrl = 'http://13.232.111.180/process.php';
+    let baseUrl = 'http://13.232.23.121/process.php';
     return this.http.post(baseUrl, postObj,headers)
         .pipe(catchError(err => this.handleError(err)));
   }

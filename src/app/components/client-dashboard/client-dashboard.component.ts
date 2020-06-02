@@ -12,6 +12,7 @@ export class ClientDashboardComponent implements OnInit {
   id: any;
   reportList = new Array();
   doctorList = new Array();
+  fileName: String;
   
   constructor(public afterLogin: AfterLoginService, public adminService:AdminService) { }
 
@@ -41,6 +42,7 @@ export class ClientDashboardComponent implements OnInit {
     }
   }
   uploadImage(imageData) {
+    this.fileName = imageData['name'];
     let fileData = new FormData();
     fileData.append('ref_file',imageData);
     fileData.append('media_type','3');
@@ -61,6 +63,7 @@ export class ClientDashboardComponent implements OnInit {
   addReportFunc(response){
     let apiReq = {
       'reporturl':response.data['ref_link'],
+      'reportName':this.fileName,
       'clientName': localStorage.getItem('firstName')+' '+localStorage.getItem('lastName')
     };
     this.adminService.showSpinner();
