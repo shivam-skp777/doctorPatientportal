@@ -30,7 +30,7 @@
                                                                 <td class="avatar">
                                                                     <div class="round-img">
                                                                         <a *ngIf="!(report.reporturl.includes('.pdf'))" (click)="downloadReportFunc(report.reporturl)"><img class="rounded-circle" [src]="report.reporturl" alt=""></a>
-                                                                        <a *ngIf="(report['reporturl'].includes('.pdf'))" [href]="report.reporturl" target="_blank">PDF</a>
+                                                                        <a *ngIf="(report['reporturl'].includes('.pdf'))" [href]="report.reporturl" target="_blank">{{report?.reportName}}</a>
                                                                     </div>
                                                                 </td>
                                                                 <td>  <span class="name text-center">{{report?.clientName}}</span> </td>

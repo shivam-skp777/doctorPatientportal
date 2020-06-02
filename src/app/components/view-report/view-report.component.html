@@ -18,6 +18,8 @@
                                                                 <th class="avatar">Name</th> 
                                                                 <th class="text-center">Value</th>
                                                                 <th class="text-center">Unit</th>
+                                                                <th class="text-center">ReadIndex</th>
+                                                                <th class="text-center">TempSent</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -26,6 +28,8 @@
                                                                 <td>  <span class="name text-center">{{report?.name}}</span> </td>
                                                                 <td class="text-center" > <span>{{report?.Value}}</span></td>
                                                                 <td  class="text-center"> <span class="product">{{report?.Unit}}</span> </td>
+                                                                <td class="text-center" > <span>{{report?.ReadIndex}}</span></td>
+                                                                <td  class="text-center"> <span class="product">{{report?.TempSent}}</span> </td>
                                                             </tr> 
                                                             <tr *ngIf="reportList == ''">
                                                                 <td class="serial">No Report Available</td>   
